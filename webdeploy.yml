@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gjk-deployment
+  labels:
+    app: gjk
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: gjk
+  template:
+    metadata:
+      labels:
+        app: gjk
+    spec:
+      containers:
+        - name: gjk
+          image: gjk:0.0.1
+          ports:
+            - containerPort: 8081
