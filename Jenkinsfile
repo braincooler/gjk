@@ -13,7 +13,7 @@ pipeline {
       stage("Build image") {
             steps {
                 script {
-                    $ mvn com.spotify:dockerfile-maven-plugin:build -Ddockerfile.repository=docker6869/gjk
+                    myapp = docker.build("docker6869/gjk")
                 }
             }
         }
