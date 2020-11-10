@@ -13,7 +13,7 @@ pipeline {
       stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("docker6869/gjk").push
+                    myapp = docker.build("gjk").push
                 }
             }
         }
