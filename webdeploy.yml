@@ -1,21 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gjk-deployment
-  labels:
-    app: gjk
+  name: gjk
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: gjk
+      version: blue
   template:
     metadata:
+      name: gjk-pod
       labels:
         app: gjk
+        version: blue
     spec:
       containers:
         - name: gjk
-          image: gjk:0.0.1
+          image: docker6860/gjk:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gjk-svc
+  labels:
+    app: gjk-app
+spec:
+  selector:
+    app: gjk-app
+    version: blue
+  type: NodePort
+  ports:
+    - nodePort: 31113
+      port: 8081
+      targetPort: 8081
