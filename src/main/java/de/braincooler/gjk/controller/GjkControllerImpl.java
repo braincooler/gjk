@@ -7,6 +7,6 @@ import org.springframework.stereotype.Controller;
 public class GjkControllerImpl implements GjkController {
     @Override
     public ResponseEntity<String> getHello() {
-        return ResponseEntity.ok("Hello gjk!");
+        return ResponseEntity.ok("Hello gjk2!");
     }
 }
