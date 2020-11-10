@@ -13,7 +13,7 @@ pipeline {
       stage("Build image") {
             steps {
                 script {
-                    sh 'mvn spring-boot:build-image'
+                    myapp = docker.build("docker6869/gjk").push
                 }
             }
         }
